@@ -1,10 +1,10 @@
 import express from 'express';
-import { foods } from '../constants';
+import { getMenu, getOrder, submitOrder } from './foods.controller';
 
 const router = express.Router();
 
-router.get('/menu', (req, res) => {
-	return res.status(200).json({ success: true, data: foods });
-});
+router.get('/menu', getMenu);
+router.post('/submit-order', submitOrder);
+router.post('/my-order', getOrder);
 
 export default router;

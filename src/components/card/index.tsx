@@ -2,11 +2,22 @@ import { useFoodOrderStore } from '@/store';
 import { formatCurrency } from '@/utils';
 import { FoodItem } from '@shared/api';
 import { useState } from 'react';
+import toast from 'react-hot-toast';
 import { BsPlus } from 'react-icons/bs';
 
-interface Props extends FoodItem {}
+interface Props extends FoodItem {
+	isOrdering?: boolean;
+	quantity?: number;
+}
 
-export function Card({ id, name, imgSource, price }: Props) {
+export function Card({
+	id,
+	name,
+	imgSource,
+	price,
+	isOrdering,
+	quantity,
+}: Props) {
 	const { addItem } = useFoodOrderStore();
 
 	const [localQuantity, setLocalQuantity] = useState(0);
@@ -24,36 +35,45 @@ export function Card({ id, name, imgSource, price }: Props) {
 				<h2 className='card-title'>{name}</h2>
 				<p className='text-red-700 font-semibold'>{formatCurrency(price)}</p>
 				<div className='flex gap-2 items-center'>
-					<button
-						className='btn btn-ghost btn-sm'
-						onClick={() => {
-							if (localQuantity > 0) {
-								setLocalQuantity(localQuantity - 1);
-							}
-						}}
-					>
-						-
-					</button>
-					<span>{localQuantity}</span>
-					<button
-						className='btn btn-ghost btn-sm'
-						onClick={() => setLocalQuantity(localQuantity + 1)}
-					>
-						+
-					</button>
+					{isOrdering && (
+						<button
+							className='btn btn-ghost btn-sm'
+							onClick={() => {
+								if (localQuantity > 0) {
+									setLocalQuantity(localQuantity - 1);
+								}
+							}}
+						>
+							-
+						</button>
+					)}
+					<span>{isOrdering ? localQuantity : `${quantity}x`}</span>
+					{isOrdering && (
+						<button
+							className='btn btn-ghost btn-sm'
+							onClick={() => setLocalQuantity(localQuantity + 1)}
+						>
+							+
+						</button>
+					)}
 				</div>
-				<div className='card-actions w-full'>
-					<button
-						className='btn btn-primary w-full'
-						onClick={() => {
-							addItem({ id, name, imgSource, price }, localQuantity);
-							setLocalQuantity(0);
-						}}
-						disabled={localQuantity < 1}
-					>
-						<BsPlus className='text-2xl' /> Add to Cart
-					</button>
-				</div>
+				{isOrdering && (
+					<div className='card-actions w-full'>
+						<button
+							className='btn btn-primary w-full'
+							onClick={() => {
+								addItem({ id, name, imgSource, price }, localQuantity);
+								toast.success(
+									`${localQuantity}x ${name} added (${formatCurrency(price)})`
+								);
+								setLocalQuantity(0);
+							}}
+							disabled={localQuantity < 1}
+						>
+							<BsPlus className='text-2xl' /> Add to Cart
+						</button>
+					</div>
+				)}
 			</div>
 		</div>
 	);

@@ -9,6 +9,7 @@ interface FoodOrderState {
 	updateQuantity: (foodId: number, quantity: number) => void;
 	removeItem: (foodId: number) => void;
 	calculateTotals: () => void;
+	resetOrders: () => void;
 }
 
 export const useFoodOrderStore = create<FoodOrderState>((set, get) => ({
@@ -72,5 +73,9 @@ export const useFoodOrderStore = create<FoodOrderState>((set, get) => ({
 		);
 
 		set({ totalAmount, totalOrder });
+	},
+
+	resetOrders: () => {
+		set({ orders: [], totalAmount: 0, totalOrder: 0 });
 	},
 }));

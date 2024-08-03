@@ -1,4 +1,4 @@
-import { FoodItem } from '@shared/api';
+import { FoodItem, MyOrderItem } from '@shared/api';
 
 export const PORT = process.env.PORT || '3001';
 
@@ -58,3 +58,7 @@ export const foods: FoodItem[] = [
 		price: 65000,
 	},
 ];
+
+export const orders = {} as {
+	[key: string]: MyOrderItem;
+};

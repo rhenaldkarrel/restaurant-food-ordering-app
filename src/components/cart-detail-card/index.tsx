@@ -1,6 +1,7 @@
 import { useFoodOrderStore } from '@/store';
 import { formatCurrency } from '@/utils';
 import { OrderItem } from '@shared/api';
+import { BsTrash } from 'react-icons/bs';
 
 interface Props extends OrderItem {}
 
@@ -11,7 +12,7 @@ export function CartDetailCard({
 	id,
 	quantity,
 }: Props) {
-	const { updateQuantity } = useFoodOrderStore();
+	const { updateQuantity, removeItem } = useFoodOrderStore();
 
 	return (
 		<div className='flex flex-col bg-white border border-gray-200 rounded-lg shadow md:flex-row dark:border-gray-700 dark:bg-gray-800'>
@@ -21,7 +22,7 @@ export function CartDetailCard({
 				alt={name}
 			/>
 
-			<div className='flex flex-col p-4 leading-normal grow'>
+			<div className='flex flex-col p-4 grow'>
 				<div className='flex flex-col items-end'>
 					<p className='mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white'>
 						{name}
@@ -43,6 +44,14 @@ export function CartDetailCard({
 						onClick={() => updateQuantity(id, quantity + 1)}
 					>
 						+
+					</button>
+				</div>
+				<div className='flex justify-end mt-2'>
+					<button
+						className='btn btn-error btn-sm'
+						onClick={() => removeItem(id)}
+					>
+						<BsTrash />
 					</button>
 				</div>
 			</div>

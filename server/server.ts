@@ -7,6 +7,8 @@ import { PORT } from './src/constants';
 const app = express();
 
 app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use('/api/foods', foodRoutes);
 
 app.use('/', (req, res) => res.send('Welcome to our restaurant server!'));

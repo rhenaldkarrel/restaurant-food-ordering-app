@@ -13,3 +13,18 @@ export type ApiResponse<T> = {
 export interface OrderItem extends FoodItem {
 	quantity: number;
 }
+
+export interface MyOrderItem {
+	tableNumber: string;
+	orderItem: OrderItem[];
+	totalAmount: number;
+	totalOrder: number;
+}
+
+export interface SubmitOrderPayload {
+	sessionUserId: string;
+	orderItems: OrderItem[];
+	tableNumber: string;
+	totalAmount: number;
+	totalOrder: number;
+}
