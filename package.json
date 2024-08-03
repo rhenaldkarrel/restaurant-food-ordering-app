@@ -4,6 +4,8 @@
 	"version": "0.0.0",
 	"type": "module",
 	"scripts": {
+		"install:client": "pnpm install",
+		"install:server": "cd ./server && pnpm install",
 		"dev:client": "vite",
 		"dev:server": "cd ./server && pnpm dev",
 		"build": "tsc -b && vite build",
