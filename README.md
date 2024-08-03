@@ -1,30 +1,44 @@
-# React + TypeScript + Vite
+# Restaurant Ordering Web Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a full-stack application to simulate a simple food ordering app in a restaurant.
 
-Currently, two official plugins are available:
+## How to run the project
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Open terminal and install client's dependencies
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json', './tsconfig.app.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+```bash
+pnpm install:client
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Run the client app
+
+```bash
+pnpm dev:client
+```
+
+Open new terminal and install server's dependencies
+
+```bash
+pnpm install:server
+```
+
+Run the server app
+
+```bash
+pnpm dev:server
+```
+
+## Highlights
+
+- React + TypeScript
+- Tailwind CSS + DaisyUI
+- React Query
+- Zustand
+- Express + TypeScript
+- Memory variable (no database)
+- Structured code
+
+## Potential Improvements
+
+- Migrate to real databases
+- Refactor code and folders
