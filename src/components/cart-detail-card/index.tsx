@@ -17,7 +17,7 @@ export function CartDetailCard({
 	return (
 		<div className='flex flex-col bg-white border border-gray-200 rounded-lg shadow md:flex-row dark:border-gray-700 dark:bg-gray-800'>
 			<img
-				className='object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 aspect-video md:rounded-none md:rounded-s-lg'
+				className='object-cover w-full rounded-t-lg sm:h-96 md:h-auto md:w-48 aspect-video md:rounded-none md:rounded-s-lg'
 				src={imgSource}
 				alt={name}
 			/>

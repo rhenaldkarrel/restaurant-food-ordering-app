@@ -59,7 +59,7 @@ export function Cart() {
 				</div>
 			)}
 
-			<div className='grid grid-cols-2 gap-4'>
+			<div className='grid sm:grid-cols-2 gap-4'>
 				{orders.map((order) => (
 					<CartDetailCard
 						key={order.id}
@@ -77,15 +77,15 @@ export function Cart() {
 					<h2>Total</h2>
 					<p>{formatCurrency(totalAmount)}</p>
 				</div>
-				<form className='flex justify-between items-center'>
-					<label className='form-control w-full max-w-xs'>
+				<form className='flex justify-between sm:items-end flex-col items-stretch sm:flex-row gap-4'>
+					<label className='form-control w-full sm:max-w-xs'>
 						<div className='label'>
 							<span className='label-text'>Table Number</span>
 						</div>
 						<input
 							type='text'
 							placeholder='Type here'
-							className='input input-bordered w-full max-w-xs'
+							className='input input-bordered w-full sm:max-w-xs'
 							disabled={orders.length < 1 || !!userTableNumber}
 							value={tableNumber}
 							onChange={(e) => setTableNumber(e.target.value)}
