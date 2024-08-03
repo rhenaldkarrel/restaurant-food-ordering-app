@@ -39,8 +39,8 @@ export function Cart() {
 				resetOrders();
 				navigate('/');
 			},
-			onError: (error) => {
-				console.error('Order submission failed', error);
+			onError: () => {
+				toast.error('Order submission failed');
 			},
 		});
 	};
