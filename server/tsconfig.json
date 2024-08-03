@@ -1,0 +1,19 @@
+{
+	"compilerOptions": {
+		"outDir": "./dist",
+		"sourceMap": false,
+		"noImplicitAny": false,
+		"allowSyntheticDefaultImports": true,
+		"module": "commonjs",
+		"target": "es2016",
+		"jsx": "preserve",
+		"esModuleInterop": true,
+		"allowJs": true,
+		"moduleResolution": "node"
+	},
+	"include": ["src"],
+	"exclude": [],
+	"ts-node": {
+		"transpileOnly": true
+	}
+}
