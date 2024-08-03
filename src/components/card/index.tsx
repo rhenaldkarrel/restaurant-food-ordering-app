@@ -1,14 +1,10 @@
 import { useFoodOrderStore } from '@/store';
 import { formatCurrency } from '@/utils';
+import { FoodItem } from '@shared/api';
 import { useState } from 'react';
 import { BsPlus } from 'react-icons/bs';
 
-interface Props {
-	id: number;
-	name: string;
-	imgSource: string;
-	price: number;
-}
+interface Props extends FoodItem {}
 
 export function Card({ id, name, imgSource, price }: Props) {
 	const { addItem } = useFoodOrderStore();
@@ -55,7 +51,7 @@ export function Card({ id, name, imgSource, price }: Props) {
 						}}
 						disabled={localQuantity < 1}
 					>
-						<BsPlus className='text-2xl' /> Add
+						<BsPlus className='text-2xl' /> Add to Cart
 					</button>
 				</div>
 			</div>

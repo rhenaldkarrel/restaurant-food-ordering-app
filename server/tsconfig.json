@@ -9,9 +9,12 @@
 		"jsx": "preserve",
 		"esModuleInterop": true,
 		"allowJs": true,
-		"moduleResolution": "node"
+		"moduleResolution": "node",
+		"paths": {
+			"@shared/*": ["../shared/*"]
+		}
 	},
-	"include": ["src"],
+	"include": ["src", "../shared"],
 	"exclude": [],
 	"ts-node": {
 		"transpileOnly": true

@@ -1,13 +1,8 @@
 import { useFoodOrderStore } from '@/store';
 import { formatCurrency } from '@/utils';
+import { OrderItem } from '@shared/api';
 
-interface Props {
-	id: number;
-	name: string;
-	imgSource: string;
-	price: number;
-	quantity: number;
-}
+interface Props extends OrderItem {}
 
 export function CartDetailCard({
 	name,

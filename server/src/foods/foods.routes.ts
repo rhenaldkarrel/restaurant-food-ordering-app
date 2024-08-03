@@ -1,9 +1,10 @@
 import express from 'express';
+import { foods } from '../constants';
 
 const router = express.Router();
 
-router.get('/', (req, res) => {
-	return res.status(200).json({ success: true, message: 'Hello food!' });
+router.get('/menu', (req, res) => {
+	return res.status(200).json({ success: true, data: foods });
 });
 
 export default router;

@@ -1,15 +1,5 @@
-import create from 'zustand';
-
-interface FoodItem {
-	id: number;
-	name: string;
-	imgSource: string;
-	price: number;
-}
-
-interface OrderItem extends FoodItem {
-	quantity: number;
-}
+import { FoodItem, OrderItem } from '@shared/api';
+import { create } from 'zustand';
 
 interface FoodOrderState {
 	orders: OrderItem[];
