@@ -74,7 +74,11 @@ export function Cart() {
 
 			<div className='flex flex-col mt-6 space-y-4'>
 				<div className='flex justify-between'>
-					<h2>Total</h2>
+					<h2>Total Order</h2>
+					<p>{totalOrder}</p>
+				</div>
+				<div className='flex justify-between'>
+					<h2>Total Amount</h2>
 					<p>{formatCurrency(totalAmount)}</p>
 				</div>
 				<form className='flex justify-between sm:items-end flex-col items-stretch sm:flex-row gap-4'>
