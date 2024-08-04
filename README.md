@@ -4,18 +4,6 @@ This is a full-stack application to simulate a simple food ordering app in a res
 
 ## How to run the project
 
-Open terminal and install client's dependencies
-
-```bash
-pnpm install:client
-```
-
-Run the client app
-
-```bash
-pnpm dev:client
-```
-
 Open new terminal and install server's dependencies
 
 ```bash
@@ -28,8 +16,21 @@ Run the server app
 pnpm dev:server
 ```
 
+Open terminal and install client's dependencies
+
+```bash
+pnpm install:client
+```
+
+Run the client app
+
+```bash
+pnpm dev:client
+```
+
 ## Highlights
 
+- Used uuid for registering user by utilizing web's session storage
 - React + TypeScript
 - Tailwind CSS + DaisyUI
 - React Query
