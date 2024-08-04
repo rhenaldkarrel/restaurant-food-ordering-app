@@ -11,8 +11,7 @@ export const getOrder = (req: Request, res: Response) => {
 };
 
 export const submitOrder = (req: Request, res: Response) => {
-	const { sessionUserId, orderItems, tableNumber, totalAmount, totalOrder } =
-		req.body;
+	const { sessionUserId, orderItems, tableNumber } = req.body;
 
 	if (!sessionUserId || !Array.isArray(orderItems)) {
 		return res.status(400).json({ success: false, message: 'Invalid request' });
@@ -37,25 +36,20 @@ export const submitOrder = (req: Request, res: Response) => {
 		if (existingOrderIndex !== -1) {
 			orders[sessionUserId].orderItem[existingOrderIndex].quantity += quantity;
 		} else {
-			const prev = orders[sessionUserId];
-
-			orders[sessionUserId] = {
-				tableNumber,
-				totalAmount: prev.totalAmount + totalAmount,
-				totalOrder: prev.totalOrder + totalOrder,
-				orderItem: [
-					...prev.orderItem,
-					{
-						id,
-						name,
-						imgSource,
-						price,
-						quantity,
-					},
-				],
-			};
+			orders[sessionUserId].orderItem.push({
+				id,
+				name,
+				imgSource,
+				price,
+				quantity,
+			});
 		}
+
+		orders[sessionUserId].totalOrder += quantity;
+		orders[sessionUserId].totalAmount += price * quantity;
 	});
+
+	orders[sessionUserId].tableNumber = tableNumber;
 
 	return res
 		.status(200)
