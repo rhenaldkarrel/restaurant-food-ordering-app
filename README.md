@@ -4,7 +4,7 @@ This is a full-stack application to simulate a simple food ordering app in a res
 
 ## How to run the project
 
-Open new terminal and install server's dependencies
+Open terminal and install server's dependencies
 
 ```bash
 pnpm install:server
@@ -16,7 +16,7 @@ Run the server app
 pnpm dev:server
 ```
 
-Open terminal and install client's dependencies
+Open new terminal and install client's dependencies
 
 ```bash
 pnpm install:client
